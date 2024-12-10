@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "api-demo"
+version = "0.1.0"
+description = "Demonstrate calling various RA APIs."
+authors = ["Darren Vengroff <darren@rewiringamerica.org>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+censusdis = "^1.2.4"
+jupyterlab = "^4.3.2"
+ipywidgets = "^8.1.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

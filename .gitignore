@@ -1,0 +1,21 @@
+.vscode
+.venv
+
+# Compile python
+*.pyc
+
+# Backup files.
+*~
+
+# Distribution directory
+dist
+
+# Sphinx docs build dirs. 
+docs/_build
+docs/_autosummary
+
+# MacOS file metadata
+.DS_Store
+
+# Notebook checkpoints.
+.ipynb_checkpoints
