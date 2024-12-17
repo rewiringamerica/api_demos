@@ -4,7 +4,10 @@ This repository contains demonstration code showing how to use the various
 [Rewiring America APIs](https://api.rewiringamerica.org/docs/routes#overview)
 in a variety of applications.
 
-Demo notebooks can be found in the [`notebooks`](./notebooks) directory.
+Demo Python notebooks can be found in the [`notebooks`](./notebooks) directory.
+
+A demo web site with a form and some JavaScript to call the API can be found in
+the [`www`](./www) directory.
 
 ## A note on API Keys
 
