@@ -21,7 +21,7 @@ on the response it gets.
         
         function updateResults(response) {
             // Update the results in the DOM.
-            savings = -response.delta.cost.mean.find(element => element.fuel_type == 'net').value;
+            savings = -response.fuel_results.total.delta.cost.mean.value;
             document.getElementById("savings").textContent = savings.toLocaleString("en-US", {style:"currency", currency:"USD"});
             document.getElementById("results").hidden = false;
             document.getElementById("ok").innerText = "OK";
@@ -35,7 +35,7 @@ on the response it gets.
             document.getElementById("results").hidden = true;
             const address = document.getElementById("address").value;
             const fuel = document.querySelector('input[name="fuel"]:checked').value;
-            const base_url = "https://api.rewiringamerica.org/api/v1/rem/v1/address"
+            const base_url = "https://api.rewiringamerica.org/api/v1/rem/address"
             const url = encodeURI(base_url + "?upgrade=high_eff_hp_elec_backup&address=" + address + "&heating_fuel=" + fuel) 
             const options = {method: 'GET', accept: "application/json", headers: {Authorization: "Bearer " + api_key}};
             
@@ -52,7 +52,6 @@ on the response it gets.
                         return response.json();
                     }
                 )
-                .then(response => response.json())
                 .then(updateResults)
                 .catch(err => console.error(err));
         }
@@ -71,10 +70,10 @@ on the response it gets.
         <div id="mainform">
             <p>Address:</p><input name="address" id="address"></input>
             <p>Current Heating Fuel:</p>
-            <input type="radio" name="fuel" id="fueloil" value="Fuel Oil"><label for="fueloil">Fuel Oil</label>
-            <input type="radio" name="fuel" id="natgas" value="Natural Gas" checked="true"><label for="natgas">Natural Gas</label>
-            <input type="radio" name="fuel" id="propane" value="Propane"><label for="propane">Propane</label>
-            <input type="radio" name="fuel" id="electric" value="Electricity"><label for="electric">Electricity</label><br/><br/>
+            <input type="radio" name="fuel" id="fueloil" value="fuel_oil"><label for="fueloil">Fuel Oil</label>
+            <input type="radio" name="fuel" id="natgas" value="natural_gas" checked="true"><label for="natgas">Natural Gas</label>
+            <input type="radio" name="fuel" id="propane" value="propane"><label for="propane">Propane</label>
+            <input type="radio" name="fuel" id="electric" value="electricity"><label for="electric">Electricity</label><br/><br/>
             <button id="ok" onclick="callApi()">OK</button>
         </div>
         <div id="results" hidden="True">
