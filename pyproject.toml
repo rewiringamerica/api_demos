@@ -10,6 +10,7 @@ python = "^3.11"
 censusdis = "^1.2.4"
 jupyterlab = "^4.3.2"
 ipywidgets = "^8.1.5"
+requests = "^2.28.0"
 
 
 [build-system]
