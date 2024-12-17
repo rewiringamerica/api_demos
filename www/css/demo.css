@@ -1,0 +1,67 @@
+html, body {
+    height: 100%;
+    margin: 16pt;
+    color: #333;
+    font-family: 'Balsamiq Sans';
+}
+
+#titlebar {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    position: relative;
+}
+
+#titlebar h1 {
+    text-align: center;
+    font: 600 36px;
+    padding: 0px;
+    margin: 10px;
+}
+
+#titlebar h2 {
+    text-align: center;
+    font: 600 24px;
+    padding: 0px;
+    margin: 10px;
+}
+
+#content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    min-width: 540px;
+    max-width: 640px;
+    position: relative;
+}
+
+#mainform {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    font: 400 12pt 'Balsamiq Sans';
+}
+
+#address {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    font-size: 12pt;
+}
+
+#ok {
+    width: 80px;
+}
+
+#results {
+    margin-top: 40px;   
+}
+
+#savings {
+    font-size: 18pt;
+}
+
+#addapi {
+    margin-top: 200px;
+    float: right;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- 
+This is an example of what a local heat pump installer's
+web site could look like with the REM API integrated.
+
+This page has a form and a bit of code to process inputs
+from the form, call the REM API, and update the page based
+on the response it gets.
+-->
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Balsamiq Sans' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/demo.css">
+    <title>Electrification Nation</title>
+</head>
+<body>
+    <script>
+        // If you don't have an API key, please register at 
+        // https://rewiring.link/api-signup to get one.
+        const api_key = "INSERT_YOUR_API_KEY_HERE"
+        
+        function updateResults(response) {
+            // Update the results in the DOM.
+            savings = -response.delta.cost.mean.find(element => element.fuel_type == 'net').value;
+            document.getElementById("savings").textContent = savings.toLocaleString("en-US", {style:"currency", currency:"USD"});
+            document.getElementById("results").hidden = false;
+            document.getElementById("ok").innerText = "OK";
+            document.getElementById("ok").disabled = false;
+        }
+        function callApi() {
+            // Call the API using arguments taken from the form,
+            // then populate the DOM based on the results.
+            document.getElementById("ok").innerText = "Working...";
+            document.getElementById("ok").disabled = true;
+            document.getElementById("results").hidden = true;
+            const address = document.getElementById("address").value;
+            const fuel = document.querySelector('input[name="fuel"]:checked').value;
+            const base_url = "https://api.rewiringamerica.org/api/v1/rem/v1/address"
+            const url = encodeURI(base_url + "?upgrade=high_eff_hp_elec_backup&address=" + address + "&heating_fuel=" + fuel) 
+            const options = {method: 'GET', accept: "application/json", headers: {Authorization: "Bearer " + api_key}};
+            
+            console.log("Fetching " + url)
+            console.log("with options: " + options)
+
+            fetch(url, options)
+                .then(
+                    function(response) {
+                        console.log("HTTP status: " + response.status);
+                        if (!response.ok) {
+                            throw new Error("HTTP status " + response.status);
+                        }
+                        return response.json();
+                    }
+                )
+                .then(response => response.json())
+                .then(updateResults)
+                .catch(err => console.error(err));
+        }
+    </script>
+    <div id="titlebar">
+        <h1 id="title">
+            Electrification Nation
+        </h1>
+        <h2 id="subtitle">Your Heat Pump People</h2>
+    </div>
+    <div id="content">
+        <div>
+            We're here to help you save money by electrifying your home. Enter your address and select the fuel you
+            currently use to heat your home and we'll tell you how much you can save by having us install a heat pump!
+        </div>
+        <div id="mainform">
+            <p>Address:</p><input name="address" id="address"></input>
+            <p>Current Heating Fuel:</p>
+            <input type="radio" name="fuel" id="fueloil" value="Fuel Oil"><label for="fueloil">Fuel Oil</label>
+            <input type="radio" name="fuel" id="natgas" value="Natural Gas" checked="true"><label for="natgas">Natural Gas</label>
+            <input type="radio" name="fuel" id="propane" value="Propane"><label for="propane">Propane</label>
+            <input type="radio" name="fuel" id="electric" value="Electricity"><label for="electric">Electricity</label><br/><br/>
+            <button id="ok" onclick="callApi()">OK</button>
+        </div>
+        <div id="results" hidden="True">
+            <p>Expected annual savings: <span id="savings">...</span></p>
+            <p>Call us at 1-800-LEC-TRIC to get your job started today!</p>
+        </div>
+    </div>
+</body>
+</html>
