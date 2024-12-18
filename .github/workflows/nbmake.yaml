@@ -41,7 +41,7 @@ jobs:
         uses: abatilo/actions-poetry@v2
     
       - name: Use poetry to install dependencies.
-        run: poetry install
+        run: poetry install --with test
     
       - name: Install API key
         env: # Or as an environment variable
