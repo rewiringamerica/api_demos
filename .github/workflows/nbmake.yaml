@@ -52,4 +52,4 @@ jobs:
 
       - name: Test the notebook
         run: |
-            pytest --nbmake "${{matrix.notebook}}"
+            poetry run pytest --nbmake "${{matrix.notebook}}"
