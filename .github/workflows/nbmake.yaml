@@ -1,0 +1,55 @@
+# Test run all the notebooks whenever we push a branch.
+
+name: nbmake
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  # List the notebooks
+  list-notebooks:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.notebook-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: notebook-matrix
+        run: echo "matrix=$(find notebooks -name "*.ipynb" | jq -R -s -c 'split("\n")[:-1]')" >> $GITHUB_OUTPUT
+  nbmake:
+    needs: list-notebooks
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        notebook: ${{ fromJson(needs.list-notebooks.outputs.matrix) }}
+      fail-fast: false
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        id: setup-python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install poetry
+        uses: abatilo/actions-poetry@v2
+    
+      - name: Use poetry to install dependencies.
+        run: poetry install --without dev-db
+    
+      - name: Install API key
+        env: # Or as an environment variable
+          RA_API_KEY: ${{ secrets.RA_API_KEY }}
+        run: |
+          mkdir ~/.rwapi
+          echo "$RA_API_KEY" > ~/.rwapi/api_key.txt
+
+      - name: Test the notebook
+        run: |
+            pytest --nbmake "${{matrix.notebook}}"
