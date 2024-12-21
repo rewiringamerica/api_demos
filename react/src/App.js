@@ -28,7 +28,6 @@ function AddressForm() {
     const apiKey = "INSERT_YOUR_API_KEY_HERE"
     
     const onFuelChange = (event) => {
-        console.log(`Set fuel: ${event.target.value}`)
         setCurrentFuel(event.target.value)
         setHidden(true)
     }
@@ -44,8 +43,6 @@ function AddressForm() {
      */
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(`Address: ${address}`)
-        console.log(`Fuel: ${currentFuel}`)
 
         axios
             .get(
@@ -56,10 +53,7 @@ function AddressForm() {
                 } 
             )
             .then(
-                (response) => {
-                    console.log(response)
-                    console.log(response.data)
-                    
+                (response) => {                    
                     const rawSavings = -Number(response.data.fuel_results.total.delta.cost.mean.value)
                     const roundedSavings = (Math.round(rawSavings * 100) / 100).toFixed(2);
                     const expectedSavings = "$" + roundedSavings
@@ -84,7 +78,6 @@ function AddressForm() {
                             value={address} 
                             onChange={
                                 e => {
-                                    console.log(`Set Address: ${e.target.value}`);
                                     setAddress(e.target.value)
                                     setHidden(true)
                                 }
