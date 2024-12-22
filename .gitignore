@@ -19,3 +19,9 @@ docs/_autosummary
 
 # Notebook checkpoints.
 .ipynb_checkpoints
+
+# Node modules.
+node_modules
+
+# Builds
+build/
