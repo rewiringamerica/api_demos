@@ -3,7 +3,7 @@
 
 import Head from 'next/head'
 
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import './globals.css';
 
 import serverSavings from './serverSavings';
@@ -12,8 +12,6 @@ async function clientSavings(address : string, currentFuel : string) {
     console.log("On the client side.");
 
     const expectedSavings = await serverSavings(address, currentFuel);
-
-    console.log(`Client savings: ${expectedSavings}`);
 
     return expectedSavings
 }
@@ -33,7 +31,7 @@ function AddressForm() {
     const [savings, setSavings] = useState("")
     const [hidden, setHidden] = useState(true)
 
-    const onFuelChange = (event) => {
+    const onFuelChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setCurrentFuel(event.target.value)
         setHidden(true)
     }
@@ -47,7 +45,7 @@ function AddressForm() {
      * 
      * @param {Event} event - the change event.
      */
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         const expectedSavings = clientSavings(address, currentFuel);
@@ -119,8 +117,8 @@ export default function Home() {
             </div>
             <div id="content">
                 <div>
-                    We're here to help you save money by electrifying your home. Enter your address and select the fuel you
-                    currently use to heat your home and we'll tell you how much you can save by having us install a heat pump!
+                    We&apos;re here to help you save money by electrifying your home. Enter your address and select the fuel you
+                    currently use to heat your home and we&apos;ll tell you how much you can save by having us install a heat pump!
                 </div>
                 <AddressForm>
                 </AddressForm>
