@@ -16,7 +16,6 @@ visible on the client side. So nobody can see it simply by loading our page the
 way they could with the [React Demo](../react).
 
 To run this project in a development server on port 3000 of `localhost`, use 
-T
 ```bash
 npm run dev
 # or
