@@ -1,6 +1,7 @@
-# REM React Demo
+# Securing API Keys with Next.js and GCP Secret Manager
 
-This demonstration illustrates how to use [react](https://react.dev/) to call
+This demonstration illustrates how to secure API keys. As an example,
+it uses
 Rewiring America's Residential Electrification(REM) API. It constructs a web page
 that allows users to type in their address and current heating fuel and get an
 estimate of how much they could save by switching to a heat pump.
