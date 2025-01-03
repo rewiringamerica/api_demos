@@ -22,3 +22,6 @@ docs/_autosummary
 
 # Node modules.
 node_modules
+
+# Builds
+build/
