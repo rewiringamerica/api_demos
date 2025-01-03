@@ -25,6 +25,17 @@ function AddressForm() {
 
     // If you don't have an API key, please register at 
     // https://rewiring.link/api-signup to get one.
+    //
+    // Please do not commit you API key to any
+    // public repository. There is an additional example
+    // in this repository that shows how to secure your 
+    // API key using Next.js. It is in the `rem-with-nextjs/`
+    // directory.
+    //
+    // That is more the type of thing you would want to do
+    // in a production environment. But for now, we are just
+    // introducing the API in static page to get started and
+    // help you understand what it can do.
     const apiKey = "INSERT_YOUR_API_KEY_HERE"
     
     const onFuelChange = (event) => {
@@ -44,25 +55,29 @@ function AddressForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios
-            .get(
-                remApiURL,
-                {
-                    params: {address: address, heating_fuel: currentFuel, upgrade: upgrade},
-                    headers: {Authorization: "Bearer " + apiKey}
-                } 
-            )
-            .then(
-                (response) => {                    
-                    const rawSavings = -Number(response.data.fuel_results.total.delta.cost.mean.value)
-                    const roundedSavings = (Math.round(rawSavings * 100) / 100).toFixed(2);
-                    const expectedSavings = "$" + roundedSavings
+        try {            
+            axios
+                .get(
+                    remApiURL,
+                    {
+                        params: {address: address, heating_fuel: currentFuel, upgrade: upgrade},
+                        headers: {Authorization: "Bearer " + apiKey}
+                    } 
+                )
+                .then(
+                    (response) => {                    
+                        const rawSavings = -Number(response.data.fuel_results.total.delta.cost.mean.value)
+                        const roundedSavings = (Math.round(rawSavings * 100) / 100).toFixed(2);
+                        const expectedSavings = "$" + roundedSavings
 
-                    setSavings(expectedSavings)
-                    setHidden(false)
-                }
-            )
-    };
+                        setSavings(expectedSavings)
+                        setHidden(false)
+                    }
+                )
+        } catch (error) {
+            console.log(error)      
+        }
+    }
 
     return (
         <>
