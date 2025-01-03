@@ -99,19 +99,47 @@ function AddressForm() {
                             }
                         />
                     </label>
-                    <label>
-                        <p className="label">
-                        Current Heating Fuel:
-                        </p>
-                        <input type="radio" name="fuel" value="fuel_oil" onChange={onFuelChange} />
-                        Fuel Oil
-                        <input type="radio" name="fuel" value="natural_gas" onChange={onFuelChange} defaultChecked={true} />
-                        Natural Gas
-                        <input type="radio" name="fuel" value="propane" onChange={onFuelChange} />
-                        Propane
-                        <input type="radio" name="fuel" value="electricity" onChange={onFuelChange} />
-                        Electricity
-                    </label>
+                    <br/><br/>
+                    <fieldset id="fuels">
+                        <legend className="label">Current Heating Fuel:</legend>
+                        <label>
+                            <input
+                                type="radio"
+                                name="fuel"
+                                value="fuel_oil"
+                                onChange={onFuelChange}
+                            />
+                            Fuel Oil
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="fuel"
+                                value="natural_gas"
+                                onChange={onFuelChange}
+                                defaultChecked={true}
+                            />
+                            Natural Gas
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="fuel"
+                                value="propane"
+                                onChange={onFuelChange}
+                            />
+                            Propane
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="fuel"
+                                value="electricity"
+                                onChange={onFuelChange}
+                            />
+                            Electricity
+                        </label>
+                        </fieldset>
                     <br/><br/>
                     <label>
                         <input type="submit" value="OK"/>

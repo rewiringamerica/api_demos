@@ -45,8 +45,14 @@ html, body {
 #address {
     margin-left: auto;
     margin-right: auto;
-    width: 400px;
+    width: 460px;
+    border-width: 3;
     font-size: 12pt;
+}
+
+#fuels {
+    width: 440px;
+    padding: 10px;
 }
 
 #ok {
