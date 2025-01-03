@@ -5,10 +5,11 @@ import SecretManagerServiceClient from '@google-cloud/secret-manager';
 
 async function accessRaApiKey() {
     // Set the name of the GCP project where you use the secret manager.
-    const project = 'XXXXXXXXXXXX';
+    const project = process.env.GCP_PROJECT;
 
     // Set your secret name here. This should refer to a secret you set
-    // up in the GCP secret manager. See https://cloud.google.com/security/products/secret-manager?hl=en
+    // up in the GCP secret manager. See
+    // https://cloud.google.com/security/products/secret-manager?hl=en
     // for details.
     const secretName = 'ra-api-key';
 

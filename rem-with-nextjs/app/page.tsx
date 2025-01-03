@@ -45,10 +45,10 @@ function AddressForm() {
      * 
      * @param {Event} event - the change event.
      */
-    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        const expectedSavings = clientSavings(address, currentFuel);
+        const expectedSavings = await clientSavings(address, currentFuel);
 
         console.log(`Handler Savings: ${expectedSavings}`)
 
