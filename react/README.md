@@ -11,3 +11,14 @@ The only difference is that this version is written in react.
 If you are not already familiar with react, we suggest you have a look
 at the [Tic-Tac-Toe Tutorial](https://react.dev/learn/tutorial-tic-tac-toe),
 which is a great interactive introduction to react.
+
+
+To use, install [Node.js](https://nodejs.org/en/) and run
+```
+npm install
+```
+
+Then run the app with
+```
+npm start
+```

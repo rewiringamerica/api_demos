@@ -18,7 +18,7 @@ function AddressForm() {
     const [savings, setSavings] = useState("")
     const [hidden, setHidden] = useState(true)
 
-    const upgrade = 'high_eff_hp_elec_backup'
+    const upgrade = 'hvac__heat_pump_seer24_hspf13'
 
     // This is the URL for the REM API.
     const remApiURL = "https://api.rewiringamerica.org/api/v1/rem/address"
