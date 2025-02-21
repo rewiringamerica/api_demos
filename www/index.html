@@ -36,7 +36,7 @@ on the response it gets.
             const address = document.getElementById("address").value;
             const fuel = document.querySelector('input[name="fuel"]:checked').value;
             const base_url = "https://api.rewiringamerica.org/api/v1/rem/address"
-            const url = encodeURI(base_url + "?upgrade=high_eff_hp_elec_backup&address=" + address + "&heating_fuel=" + fuel) 
+            const url = encodeURI(base_url + "?upgrade=hvac__heat_pump_seer24_hspf13&address=" + address + "&heating_fuel=" + fuel)
             const options = {method: 'GET', accept: "application/json", headers: {Authorization: "Bearer " + api_key}};
             
             console.log("Fetching " + url)
