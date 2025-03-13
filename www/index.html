@@ -26,6 +26,7 @@ on the response it gets.
             document.getElementById("results").hidden = false;
             document.getElementById("ok").innerText = "OK";
             document.getElementById("ok").disabled = false;
+            document.body.style.cursor='default';
         }
         function callApi() {
             // Call the API using arguments taken from the form,
@@ -41,6 +42,9 @@ on the response it gets.
             
             console.log("Fetching " + url)
             console.log("with options: " + options)
+
+            // Put up a waiting cursor so it's clear something is happening.
+            document.body.style.cursor='wait';
 
             fetch(url, options)
                 .then(
