@@ -7,7 +7,7 @@ import { HttpBearerAuth } from "@rewiringamerica/rem/model/models";
 // Set up your key to send authorized requests to the API. If you don't already have
 // one, you can sign up for one here: https://rewiring.link/api-signup
 //
-// Please do not commit you API key to any public repository. There is an additional
+// Please do not commit your API key to any public repository. There is an additional
 // example in this repository that shows how to secure your API key using Next.js.
 // It is in the `rem-with-nextjs/` directory.
 const key = new HttpBearerAuth();
