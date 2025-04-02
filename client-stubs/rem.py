@@ -14,8 +14,8 @@ with rewiringamerica_rem.ApiClient(configuration) as api_client:
     # Define your the upgrade you want to model, your home's heating fuel,
     # and your home's address.
     upgrade = rewiringamerica_rem.SupportedUpgrade.HVAC__HEAT_PUMP_SEER15_HSPF9
-    heating_fuel = rewiringamerica_rem.HeatingFuel.NATURAL_GAS
     address = "address_example"
+    heating_fuel = rewiringamerica_rem.HeatingFuel.NATURAL_GAS
 
     try:
         # Hit the API endpoint.
@@ -25,7 +25,7 @@ with rewiringamerica_rem.ApiClient(configuration) as api_client:
         # Extract the average annual cost savings from the response object.
         # This is an absolute value because the change in cost, which
         # decreases, could result in a negative sign.
-        cost_savings = round(abs(totals.delta.cost.mean.value))
+        cost_savings = round(-(totals.delta.cost.mean.value))
         # Display the savings!
         print(f"I could save ${cost_savings} annually with this home upgrade!")
     except Exception as e:
