@@ -33,8 +33,8 @@ async function getRemByAddress(
     // Extract the total values from the response object.
     const totals = apiResponse.body.fuelResults.total;
     // Extract the average annual cost savings from the response object.
-    // This is an absolute value because the change in cost, which
-    // decreases, could result in a negative sign.
+    // This is an negated because the change in cost is negative when a
+    // user saves money.
     const costSavings = Math.round(-(totals.delta.cost.mean.value));
     // Display the savings!
     console.log(

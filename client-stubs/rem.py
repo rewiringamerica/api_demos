@@ -27,8 +27,8 @@ with rewiringamerica_rem.ApiClient(configuration) as api_client:
         # Extract the total values from the response object.
         totals = api_response.fuel_results["total"]
         # Extract the average annual cost savings from the response object.
-        # This is an absolute value because the change in cost, which
-        # decreases, could result in a negative sign.
+        # This is an negated because the change in cost is negative when a
+        # user saves money.
         cost_savings = round(-(totals.delta.cost.mean.value))
         # Display the savings!
         print(f"I could save ${cost_savings} annually with this home upgrade!")
