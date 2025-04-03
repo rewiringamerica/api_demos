@@ -8,7 +8,7 @@ import rewiringamerica_rem
 # additional example in this repository that shows how to secure your API key
 # using Next.js. It is in the `rem-with-nextjs/` directory.
 configuration = rewiringamerica_rem.Configuration(
-    access_token="key_example"
+    access_token="INSERT_YOUR_API_KEY_HERE"
 )
 
 # Initialize the API client and query parameters to pass into your API request.
@@ -18,7 +18,7 @@ with rewiringamerica_rem.ApiClient(configuration) as api_client:
     # Define your the upgrade you want to model, your home's heating fuel,
     # and your home's address.
     upgrade = rewiringamerica_rem.SupportedUpgrade.HVAC__HEAT_PUMP_SEER15_HSPF9
-    address = "address_example"
+    address = "INSERT_YOUR_ADDRESS_HERE"
     heating_fuel = rewiringamerica_rem.HeatingFuel.NATURAL_GAS
 
     try:

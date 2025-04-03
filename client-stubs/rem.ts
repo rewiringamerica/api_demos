@@ -11,7 +11,7 @@ import { HttpBearerAuth } from "@rewiringamerica/rem/model/models";
 // example in this repository that shows how to secure your API key using Next.js.
 // It is in the `rem-with-nextjs/` directory.
 const key = new HttpBearerAuth();
-key.accessToken = "keyExample";
+key.accessToken = "INSERT_YOUR_API_KEY_HERE";
 
 // Initialize the API client and configure authorization with the API key.
 const remApi = new ResidentialElectrificationModelApi();
@@ -49,7 +49,7 @@ async function getRemByAddress(
 // Define the upgrade you want to model, your home's heating fuel,
 // and your home's address.
 const upgrade = SupportedUpgrade.HvacHeatPumpSeer15Hspf9;
-const address = "addressExample";
+const address = "INSERT_YOUR_ADDRESS_HERE";
 const heatingFuel = HeatingFuel.NaturalGas;
 // Call the async function that you set up.
 getRemByAddress(upgrade, address, heatingFuel);
