@@ -1,8 +1,8 @@
-# Client Stubs Demo (Python/Typescript)
+# Client Libary Demos (Python/Typescript)
 
-This demo includes example scripts demonstrating how to call the REM API using our Python and Typescript client stub packages. Both scripts output an estimate of how much money a user could save on average annually by making an electrification upgrade.
+This demo includes example scripts demonstrating how to call the REM API using our Python and Typescript client library packages. Both scripts output an estimate of how much money a user could save on average annually by making an electrification upgrade.
 
-### Python client stubs
+### Python client library
 
 To install the REM API Python package, run:
 
@@ -18,7 +18,7 @@ Then, to execute the example script, `rem.py`, run:
 python3 rem.py
 ```
 
-### Typescript client stubs
+### Typescript client library
 
 To install the REM API Typescript package, run:
 
