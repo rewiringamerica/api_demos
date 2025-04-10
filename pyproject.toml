@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "api-demo"
-version = "0.1.0"
+version = "0.1.1"
 description = "Demonstrate calling various RA APIs."
 authors = ["Darren Vengroff <darren@rewiringamerica.org>"]
 readme = "README.md"
