@@ -25,8 +25,8 @@ the [`www`](./www) folder);
 
 Client library demos include:
 
-- [rem.py](./client-stubs/rem.py), a script using our Python client library
-- [rem.ts](./client-stubs/rem.ts), a script using our TypeScript client library
+- [`rem.py`](./client-stubs/rem.py), a script using our Python client library
+- [`rem.ts`](./client-stubs/rem.ts), a script using our TypeScript client library
 
 ## A note on API Keys
 
