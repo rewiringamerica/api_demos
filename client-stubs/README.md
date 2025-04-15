@@ -2,6 +2,8 @@
 
 This demo includes example scripts demonstrating how to call the REM API using our Python and Typescript client library packages. Both scripts output an estimate of how much money a user could save on average annually by making an electrification upgrade.
 
+You can read the corresponding blog post for these demos [here](https://www.rewiringamerica.org/tools/REM-API-client-library-code-access).
+
 ### Python client library
 
 To install the REM API Python package, run:
