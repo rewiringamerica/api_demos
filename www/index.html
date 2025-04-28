@@ -21,14 +21,8 @@ on the response it gets.
         
         function updateResults(response) {
             // Update the results in the DOM.
-            savings_mean = -response.fuel_results.total.delta.cost.mean.value;
-            savings_20 = -response.fuel_results.total.delta.cost.percentile_80.value;
-            savings_80 = -response.fuel_results.total.delta.cost.percentile_20.value;
-
-            document.getElementById("savings_mean").textContent = savings_mean.toLocaleString("en-US", {style:"currency", currency:"USD"});
-            document.getElementById("savings_20").textContent = savings_20.toLocaleString("en-US", {style:"currency", currency:"USD"});
-            document.getElementById("savings_80").textContent = savings_80.toLocaleString("en-US", {style:"currency", currency:"USD"});
-
+            savings = -response.fuel_results.total.delta.cost.mean.value;
+            document.getElementById("savings").textContent = savings.toLocaleString("en-US", {style:"currency", currency:"USD"});
             document.getElementById("results").hidden = false;
             document.getElementById("ok").innerText = "OK";
             document.getElementById("ok").disabled = false;
@@ -42,12 +36,12 @@ on the response it gets.
             document.getElementById("results").hidden = true;
             const address = document.getElementById("address").value;
             const fuel = document.querySelector('input[name="fuel"]:checked').value;
-            const base_url = "https://api.rewiringamerica.org/api/v1/rem/address";
-            const url = encodeURI(base_url + "?upgrade=hvac__heat_pump_seer24_hspf13&address=" + address + "&heating_fuel=" + fuel);
+            const base_url = "https://api.rewiringamerica.org/api/v1/rem/address"
+            const url = encodeURI(base_url + "?upgrade=hvac__heat_pump_seer24_hspf13&address=" + address + "&heating_fuel=" + fuel)
             const options = {method: 'GET', accept: "application/json", headers: {Authorization: "Bearer " + api_key}};
             
-            console.log("Fetching " + url);
-            console.log("with options: " + options);
+            console.log("Fetching " + url)
+            console.log("with options: " + options)
 
             // Put up a waiting cursor so it's clear something is happening.
             document.body.style.cursor='wait';
@@ -63,13 +57,7 @@ on the response it gets.
                     }
                 )
                 .then(updateResults)
-                .catch(
-                    function(err) {
-                        console.error(err);
-                        document.getElementById("error").hidden = false;
-                        document.body.style.cursor='default';
-                    }
-                );
+                .catch(err => console.error(err));
         }
     </script>
     <div id="titlebar">
@@ -93,12 +81,9 @@ on the response it gets.
             <button id="ok" onclick="callApi()">OK</button>
         </div>
         <div id="results" hidden="True">
-            <p>Average annual savings: <span id="savings_mean">...</span></p>
-            <p>Savings range: <span id="savings_20">...</span> to <span id="savings_80">...</span></p>
+            <p>Expected annual savings: <span id="savings">...</span></p>
             <p>Call us at 1-800-LEC-TRIC to get your job started today!</p>
         </div>
-        <div id="error" hidden="True">
-            <p>An error has occurred. Please <a href=".">reload</a> this page and try again.</p>
-        </div>
+    </div>
 </body>
 </html>

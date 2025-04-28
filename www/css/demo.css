@@ -61,11 +61,6 @@ html, body {
     font-size: 18pt;
 }
 
-#error {
-    font-size: 18pt;
-    color: red;
-}
-
 #addapi {
     margin-top: 200px;
     float: right;
