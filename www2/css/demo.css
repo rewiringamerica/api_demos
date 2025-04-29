@@ -70,3 +70,15 @@ html, body {
     margin-top: 200px;
     float: right;
 }
+
+#key {
+    font-size: 9pt;
+    margin-bottom: 60px;
+}
+
+#api_key {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    font-size: 9pt;
+}
