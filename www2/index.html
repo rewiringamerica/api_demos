@@ -14,11 +14,7 @@ on the response it gets.
     <title>Electrification Nation</title>
 </head>
 <body>
-    <script>
-        // If you don't have an API key, please register at 
-        // https://rewiring.link/api-signup to get one.
-        const api_key = "INSERT_YOUR_API_KEY_HERE"
-        
+    <script>        
         function updateResults(response) {
             // Update the results in the DOM.
             savings_mean = -response.fuel_results.total.delta.cost.mean.value;
@@ -44,6 +40,7 @@ on the response it gets.
             const fuel = document.querySelector('input[name="fuel"]:checked').value;
             const base_url = "https://api.rewiringamerica.org/api/v1/rem/address";
             const url = encodeURI(base_url + "?upgrade=hvac__heat_pump_seer24_hspf13&address=" + address + "&heating_fuel=" + fuel);
+            const api_key = document.getElementById("api_key").value;
             const options = {method: 'GET', accept: "application/json", headers: {Authorization: "Bearer " + api_key}};
             
             console.log("Fetching " + url);
@@ -72,6 +69,20 @@ on the response it gets.
                 );
         }
     </script>
+    <div id="key">
+        <p>
+            API Key (Optional):
+            <input name="api_key" id="api_key" value="INSERT_YOUR_API_KEY_HERE"></input>
+        </p>
+        <p>
+            If you don't use an API key, you will be limited to 50 calls.
+        </p>
+        <p>
+            If you don't have an API key, please register at
+            <a href="https://rewiring.link/api-signup">https://rewiring.link/api-signup</a>
+            to get one.
+        </p>
+    </div>
     <div id="titlebar">
         <h1 id="title">
             Electrification Nation
