@@ -33,6 +33,8 @@ Example usage, in a cell in your spreadsheet type the following:
 - You must pass valid values for the upgrade scenario and heating fuels.
   Check the API documentation at https://api.rewiringamerica.org for details.
 - You must register for an API key to replace the string YOUR_API_KEY.
+- You may need to click "▶️ Run" in Apps Script the first time you set up the
+  script. You need to grant it permission to access external services.
 
 ### Tips
 
