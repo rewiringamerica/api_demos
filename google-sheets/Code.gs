@@ -85,7 +85,6 @@ function REM(address, upgrade, heating_fuel, water_heater_fuel, apiKey) {
  * @param {string} heating_fuel The heating fuel used in the home before the upgrade.
  * @param {string} [water_heater_fuel] The fuel used by the home's water heater before the upgrade. Required when requesting water heater upgrades; otherwise optional.
  * @param {string} apiKey A valid Rewiring America API key.
- * @return A two-dimensional array containing the data.
  * @private
  */
 function validateParameters(
@@ -138,6 +137,7 @@ function callRem(query, apiToken) {
     muteHttpExceptions: true,
   };
   const response = UrlFetchApp.fetch(url, params);
+  // TODO: check for non-200 response here?
   return JSON.parse(response.getContentText());
 } // https://stackoverflow.com/questions/68689710/google-app-script-urlfetchapp-with-bearer-token-but-get-bad-request
 
