@@ -17,11 +17,11 @@ on the response it gets.
     <script>        
         function updateResults(response) {
             // Update the results in the DOM.
-            savings_mean = -response.fuel_results.total.delta.cost.mean.value;
+            savings_median = -response.fuel_results.total.delta.cost.median.value;
             savings_20 = -response.fuel_results.total.delta.cost.percentile_80.value;
             savings_80 = -response.fuel_results.total.delta.cost.percentile_20.value;
 
-            document.getElementById("savings_mean").textContent = savings_mean.toLocaleString("en-US", {style:"currency", currency:"USD"});
+            document.getElementById("savings_median").textContent = savings_median.toLocaleString("en-US", {style:"currency", currency:"USD"});
             document.getElementById("savings_20").textContent = savings_20.toLocaleString("en-US", {style:"currency", currency:"USD"});
             document.getElementById("savings_80").textContent = savings_80.toLocaleString("en-US", {style:"currency", currency:"USD"});
 
@@ -39,7 +39,7 @@ on the response it gets.
             const address = document.getElementById("address").value;
             const fuel = document.querySelector('input[name="fuel"]:checked').value;
             const base_url = "https://api.rewiringamerica.org/api/v1/rem/address";
-            const url = encodeURI(base_url + "?upgrade=hvac__heat_pump_seer24_hspf13&address=" + address + "&heating_fuel=" + fuel);
+            const url = encodeURI(base_url + "?upgrade=hvac__heat_pump_seer18_hspf10&address=" + address + "&heating_fuel=" + fuel);
             const api_key = document.getElementById("api_key").value;
             const options = {method: 'GET', accept: "application/json", headers: {Authorization: "Bearer " + api_key}};
             
@@ -104,7 +104,7 @@ on the response it gets.
             <button id="ok" onclick="callApi()">OK</button>
         </div>
         <div id="results" hidden="True">
-            <p>Average annual savings: <span id="savings_mean">...</span></p>
+            <p>Median annual savings: <span id="savings_median">...</span></p>
             <p>Savings range: <span id="savings_20">...</span> to <span id="savings_80">...</span></p>
             <p>Call us at 1-800-LEC-TRIC to get your job started today!</p>
         </div>
