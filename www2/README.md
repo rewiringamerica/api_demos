@@ -1,7 +1,7 @@
 # More Complete WWW Demo (HTML/JavaScript)
 
 This demo extends the heat pump demo from [www](../www) with HTML that shows both the 20%
-and 80% savings numbers and the average. It also adds better error handling.
+and 80% savings numbers and the median. It also adds better error handling.
 
 The files are:
 
