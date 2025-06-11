@@ -23,10 +23,14 @@ the [`www`](./www) folder);
 - The same demo web site with better API key security using next.js and
   GCP Secret Manager (in the [`rem-with-nextjs`](./rem-with-nextjs) folder).
 
+Client library demos include:
+
+- [`rem.py`](./client-stubs/rem.py), a script using our Python client library
+- [`rem.ts`](./client-stubs/rem.ts), a script using our TypeScript client library
+
 ## A note on API Keys
 
 An API key is required in order to use any of the Rewiring America APIs.
 Please visit the
 [Rewiring America APIs page](https://api.rewiringamerica.org) to sign up
 for one.
-
