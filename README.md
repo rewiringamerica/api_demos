@@ -1,7 +1,7 @@
-# api_demos
+# API Demos
 
 This repository contains demonstration code showing how to use the various
-[Rewiring America APIs](https://api.rewiringamerica.org/docs/routes#overview)
+[Rewiring America APIs](https://docs.rewiringamerica.org/introduction)
 in a variety of applications.
 
 Demo Python notebooks can be found in the [`notebooks`](./notebooks) folder.
@@ -32,5 +32,5 @@ Client library demos include:
 
 An API key is required in order to use any of the Rewiring America APIs.
 Please visit the
-[Rewiring America APIs page](https://api.rewiringamerica.org) to sign up
+[Rewiring America APIs page](https://docs.rewiringamerica.org/introduction) to sign up
 for one.
